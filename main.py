@@ -39,7 +39,7 @@ def search_by_url(url, getkeywords):
         return "Article Not Found"
 
 def get_articles(bias: str, keywords: str):
-    """This function uses keywords to find articles that have an oppoisite bias than the one given
+    """This function uses keywords to find articles that have an opposite bias than the one given
     The elemenets in the list returned are in the form of (bias of article, article object)
     Preconditions:
         - bias in {'left', 'right', 'center', 'center-left'}
