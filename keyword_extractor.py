@@ -19,6 +19,6 @@ def get_keywords(text):
     for item in result["amazon"]["items"]:
         words += item["keyword"] + ' || '
         counter += 1
-        if counter >= 6:
+        if counter >= 10:
             break
     return words[:len(words) - 4]  # cuts off the last 4 characters of words (which is ' || ')
