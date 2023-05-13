@@ -40,7 +40,7 @@
 
 .btn--medium:hover, .btn--large:hover {
     border-color: none;
-    background: #fff;
+    background: #1f5f3b;
     color: #043927;
     transition: all 0.4s ease-out;
 }

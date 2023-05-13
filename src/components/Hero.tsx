@@ -1,46 +1,37 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Button from "./Button";
 import CardItem from "./CardItem";
 import "./Hero.css";
 
-const BASE = "http://127.0.0.1:5000/";
-
-function handleSubmiturl() {
-  // event.preventDefault();
-
-  fetch(BASE + "url", {
-    method: "POST",
-    body: JSON.stringify(FormData),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Success:", data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-}
-
-function toggleInputType(toggleType) {
-  let inputDiv = documnet.getElementById("input");
-  let articlePasteButton = document.getElementById("paste-article");
-  let linkPasteButton = document.getElementById("paste-link");
-
-  if (toggleType == "link") {
-    inputDiv.innerHTML = ``;
-    articlePasteButton.style += "";
-    linkPasteButton.style = "";
-  } else {
-    inputDiv.innerHTML = ``;
-    articlePasteButton.style = "";
-    linkPasteButton.style += "";
-  }
-}
-
 function Hero() {
+
+  function toggleInputType(toggleType) {
+    let inputDiv = document.getElementById("input");
+    let articlePasteButton = document.getElementById("paste-article");
+    let linkPasteButton = document.getElementById("paste-link");
+  
+    if (toggleType == "link") {
+      inputDiv.innerHTML = ``;
+      articlePasteButton.style += "";
+      linkPasteButton.style = "";
+    } else {
+      inputDiv.innerHTML = ``;
+      articlePasteButton.style = "";
+      linkPasteButton.style += "";
+    }
+  }
+  
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "./main.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+  
   return (
     <>
       <div className="hero-container">
@@ -79,18 +70,18 @@ function Hero() {
       <div id="input">
         <div id="article-type">
           <h2>Paste Article Here:</h2>
-          <button id="paste-article" onClick="toggleInputType()">
+          <button id="paste-article" onClick={() => toggleInputType("link")}>
             Article
           </button>
-          <button id="paste-link" onClick="toggleInputType()">
+          <button id="paste-link" onClick={() => toggleInputType("article")}>
             Link
           </button>
         </div>
-        <form onSubmit={handleSubmiturl}>
+        <form id = "url-form">
           <textarea
             placeholder="Paste article content here..."
-            rows="5"
-            cols="10"
+            rows={5}
+            cols={10}
             wrap="soft"
             type="text"
             id="pasted-article"
@@ -115,14 +106,15 @@ function Hero() {
           <div id="carouselExample" className="carousel slide">
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <CardItem
-                  className="d-block w-100"
-                  src="/src/assets/logo.png"
-                  textMain="asdas"
-                  textDesc="dasd."
-                  label="Left"
-                  path="/"
-                ></CardItem>
+                <div className="d-block w-100">
+                  <CardItem
+                    src="/src/assets/logo.png"
+                    textMain="asdas"
+                    textDesc="dasd."
+                    label="Left"
+                    path="/"
+                  ></CardItem>
+                </div>
               </div>
               <div className="carousel-item">
                 <img src="..." className="d-block w-100" alt="..."></img>
