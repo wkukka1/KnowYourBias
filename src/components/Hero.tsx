@@ -1,6 +1,44 @@
 import React from "react";
 import Button from "./Button";
+import CardItem from "./CardItem";
 import "./Hero.css";
+
+const BASE = "http://127.0.0.1:5000/";
+
+function handleSubmiturl() {
+  // event.preventDefault();
+
+  fetch(BASE + "url", {
+    method: "POST",
+    body: JSON.stringify(FormData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Success:", data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+function toggleInputType(toggleType) {
+  let inputDiv = documnet.getElementById("input");
+  let articlePasteButton = document.getElementById("paste-article");
+  let linkPasteButton = document.getElementById("paste-link");
+
+  if (toggleType == "link") {
+    inputDiv.innerHTML = ``;
+    articlePasteButton.style += "";
+    linkPasteButton.style = "";
+  } else {
+    inputDiv.innerHTML = ``;
+    articlePasteButton.style = "";
+    linkPasteButton.style += "";
+  }
+}
 
 function Hero() {
   return (
@@ -19,7 +57,6 @@ function Hero() {
             Article
           </Button>
         </div>
-        <img src="./src/assets/news.png" alt="news" className="news"></img>
         <p>
           <span>
             KnowYourBias is a website that analyzes articles from a wide range
@@ -27,9 +64,8 @@ function Hero() {
           </span>
           <span>
             {" "}
-            It uses machine learning algorithms and human editors to provide
-            users with an objective assessment of the article's political
-            leanings.
+            It uses machine learning algorithms to provide users with an
+            objective assessment of the article's political leanings.
           </span>
           <span>
             The website aims to promote a more informed public discourse and
@@ -42,13 +78,17 @@ function Hero() {
 
       <div id="input">
         <div id="article-type">
-          <button>Article Plaintext</button>
-          <button>Article Link</button>
+          <h2>Paste Article Here:</h2>
+          <button id="paste-article" onClick="toggleInputType()">
+            Article
+          </button>
+          <button id="paste-link" onClick="toggleInputType()">
+            Link
+          </button>
         </div>
-        <h2>Paste Article Here:</h2>
-        <h3></h3>
-        <form>
+        <form onSubmit={handleSubmiturl}>
           <textarea
+            placeholder="Paste article content here..."
             rows="5"
             cols="10"
             wrap="soft"
@@ -56,6 +96,7 @@ function Hero() {
             id="pasted-article"
             name="article-contents"
           ></textarea>
+          <br></br>
           <input type="submit" value="Analyze"></input>
         </form>
       </div>
@@ -64,98 +105,57 @@ function Hero() {
 
       <div className="results">
         <div className="results-txt">
+          <h3>This article is: </h3>
           <h1>Center Left</h1>
           <p>Blah blah blah</p>
         </div>
 
-        <div id="carouselExampleCaptions" className="carousel slide">
-          <div className="carousel-indicators">
+        <div className="alternative-articles">
+          <h2>Alternative Articles</h2>
+          <div id="carouselExample" className="carousel slide">
+            <div className="carousel-inner">
+              <div className="carousel-item active">
+                <CardItem
+                  className="d-block w-100"
+                  src="/src/assets/logo.png"
+                  textMain="asdas"
+                  textDesc="dasd."
+                  label="Left"
+                  path="/"
+                ></CardItem>
+              </div>
+              <div className="carousel-item">
+                <img src="..." className="d-block w-100" alt="..."></img>
+              </div>
+              <div className="carousel-item">
+                <img src="..." className="d-block w-100" alt="..."></img>
+              </div>
+            </div>
             <button
+              className="carousel-control-prev"
               type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="0"
-              className="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
+              data-bs-target="#carouselExample"
+              data-bs-slide="prev"
+            >
+              <span
+                className="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
             <button
+              className="carousel-control-next"
               type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
+              data-bs-target="#carouselExample"
+              data-bs-slide="next"
+            >
+              <span
+                className="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span className="visually-hidden">Next</span>
+            </button>
           </div>
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img
-                src="./src/assets/logo.png"
-                className="d-block w-100"
-                alt="..."
-              ></img>
-              <div className="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>
-                  Some representative placeholder content for the first slide.
-                </p>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <img
-                src="./src/assets/logo.png"
-                className="d-block w-100"
-                alt="..."
-              ></img>
-              <div className="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>
-                  Some representative placeholder content for the second slide.
-                </p>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <img
-                src="./src/assets/logo.png"
-                className="d-block w-100"
-                alt="..."
-              ></img>
-              <div className="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>
-                  Some representative placeholder content for the third slide.
-                </p>
-              </div>
-            </div>
-          </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev"
-          >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next"
-          >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Next</span>
-          </button>
         </div>
       </div>
     </>
