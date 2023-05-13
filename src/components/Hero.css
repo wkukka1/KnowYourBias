@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+hr {
+    margin: auto;
+    width: 75%;
+    height: 7px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+}
+
+.hero-container {
+    height: 110vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+    font-family: 'Open Sans';
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    padding-right: 30px;
+}
+
+.title {
+    color: white;
+    font-size: 70px;
+    font-family: 'Open Sans';
+    font-weight: 800;
+    display: flex;
+    flex-direction: horizontal;
+}
+
+.hero-container > h2 {
+    color: white;
+    margin-top: 20px;
+    font-size: 30px;
+    font-family: 'Open Sans';
+    font-weight: 800;
+}
+
+.hero-btns {
+    margin-top: 40px;
+}
+
+
+
+.hero-container > p {
+    color: white;
+    margin-top: 90px;
+    text-align: center;
+    margin-inline: 200px;
+    line-height: 30px;
+    font-size: 19px;
+}
+
+.hero-container > p span {
+    display: inline-block;
+    animation: sentence-fade-in 1s ease-in-out forwards;
+    opacity: 0;
+}
+
+.hero-container > p span:nth-child(1) {
+    animation-delay: 0.5s;
+}
+  
+.hero-container > p span:nth-child(2) {
+    animation-delay: 1s;
+}
+  
+.hero-container > p span:nth-child(3) {
+    animation-delay: 1.5s;
+}
+  
+@keyframes sentence-fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+#input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input[type=button], input[type=submit]  {
+    background-color: rgb(173, 0, 0);
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Open Sans';
+    font-weight: 800;
+}
+  
+input[type=button]:hover, input[type=submit]:hover  {
+    background-color: #630000;
+    cursor:pointer;
+}
+
+#article-type > button {
+    font-family: "Open Sans";
+    background-color: #00a862;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 4px;
+    border-bottom-width: 5px;
+    border-bottom-color: red;
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+}
+
+input[type=textarea], textarea {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    padding-bottom: 270px;
+    word-wrap: break-word;
+    width: 200%;
+    height: 300px;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+input[type="text"]:hover {
+    background-color: #fff;
+    border-bottom: 2px solid #e95f5f
+}
+
+#input > h2 {
+    color: white;
+    font-family: "Open Sans";
+}
+
+.results {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.results-txt {
+    color: white;
+    margin: 50px;
+}
+
+.carousel-caption {
+    margin-top: 200px;
+}
