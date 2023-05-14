@@ -6,8 +6,7 @@
 }
 
 body {
-    /* background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); */
-    background-image: linear-gradient(to right top, #5e72eb, #8d56b5, #de8887, #9d90ff,#6b57fe);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(to right top,#051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
 
 hr {
@@ -19,7 +18,8 @@ hr {
 }
 
 .hero-container {
-    height: 110vh;
+    padding-top: 200px;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -30,18 +30,22 @@ hr {
 }
 
 .logo {
-    width: 150px;
+    width: 220px;
     height: auto;
     padding-right: 30px;
 }
 
 .title {
+    display: flex;
+    flex-direction: row;
+}
+
+.title > h1 {
+    margin-top: 15px;
     color: white;
-    font-size: 70px;
+    font-size: 120px;
     font-family: 'Open Sans';
     font-weight: 800;
-    display: flex;
-    flex-direction: horizontal;
 }
 
 .hero-container > h2 {
@@ -53,18 +57,16 @@ hr {
 }
 
 .hero-btns {
-    margin-top: 40px;
+    margin-top: 60px;
 }
-
-
 
 .hero-container > p {
     color: white;
     margin-top: 90px;
     text-align: center;
-    margin-inline: 200px;
+    margin-inline: 300px;
     line-height: 30px;
-    font-size: 19px;
+    font-size: 23px;
 }
 
 .hero-container > p span {
@@ -74,15 +76,15 @@ hr {
 }
 
 .hero-container > p span:nth-child(1) {
-    animation-delay: 0.5s;
+    animation-delay: 0.25s;
 }
   
 .hero-container > p span:nth-child(2) {
-    animation-delay: 1s;
+    animation-delay: 0.5s;
 }
   
 .hero-container > p span:nth-child(3) {
-    animation-delay: 1.5s;
+    animation-delay: 1s;
 }
   
 @keyframes sentence-fade-in {
@@ -99,21 +101,22 @@ hr {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 5px;
 }
 
-input[type=button], input[type=submit] {
-    background-color: #2E8B57;
+input[type=button], .analyze-button {
     border: none;
+    background-color: #d85353;
     color: white;
     padding: 15px 80px;
     text-align: left;
     text-decoration: none;
     display: inline-block;
-    font-size: 13px;
+    font-size: 25px;
     -webkit-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.4);
     box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.4);
     -webkit-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 30px;
     margin: 5px 20px 40px 20px;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -121,50 +124,68 @@ input[type=button], input[type=submit] {
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     font-family: 'Open Sans';
-    font-weight: 800;
+    font-weight: 400;
+}
+
+input[type=submit] {
+    margin-left: 50px;
 }
  
 #article-type > h2 {
+    margin-left: 250px;
+    margin-top: -50px;
+    margin-bottom: 50px;
     color: white;
+    font-size: 50px;
     font-family: "Open Sans";
+    font-weight: 800;
 }
 
-input[type=button]:hover, input[type=submit]:hover, #article-type > button:hover  {
-    background-color: #1f5f3b;
+input[type=button]:hover, .analyze-button:hover, #article-type > button:hover  {
+    background-color: #963939;
     cursor:pointer;
+}
+
+#bias-warning {
+    font-size: 20px;
 }
 
 #article-type > button {
     border-top: none;
     border-left: none;
     border-right: none;
-    background-color: #2E8B57;
+    background-color: #d85353;
     color: white;
-    padding: 12px 30px 12px 30px;
-    text-align: left;
+    padding: 12px 180px 12px 180px;
+    text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 13px;
+    display: inlines-block;
+    font-size: 20px;
     -webkit-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.4);
     box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.4);
     -webkit-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
-    margin: 5px 40px 20px 10px;
+    border-radius: 20px;
+    margin: 0px 30px 0px 30px;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     font-family: 'Open Sans';
-    font-weight: 800;
 }
 
-#paste-article {
-    border-bottom-width: 5px;
-    border-bottom-color: rgb(255, 255, 255);
+#article-url {
+    width: 900px;
+    height: 50px;
+    margin-top: 35px;
 }
 
-input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+.selected-article {
+    border-bottom-width: 10px;
+    border-bottom-color: rgb(81, 255, 0);
+}
+
+input[type=button]:active, .analyze-button:active, input[type=reset]:active  {
     -moz-transform: scale(0.95);
     -webkit-transform: scale(0.95);
     -o-transform: scale(0.95);
@@ -173,6 +194,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 }
 
 input[type=textarea], textarea {
+    margin-top: 35px;
     background-color: #f6f6f6;
     color: #0d0d0d;
     text-align: left;
@@ -180,9 +202,7 @@ input[type=textarea], textarea {
     font-family: "Open Sans";
     display: inline-block;
     font-size: 16px;
-    margin: 5px;
     padding-bottom: 270px;
-    word-wrap: break-word;
     width: 900px;
     height: 100%;
     -webkit-border-radius: 5px 5px 5px 5px;
@@ -192,7 +212,9 @@ input[type=textarea], textarea {
 }
 
 input[type=textarea], textarea:focus {
-    border: 4px solid #00a108;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #a8eb12;
 }
 
 input[type="text"]:hover {
@@ -209,34 +231,41 @@ input[type="text"]:hover {
 .results-txt {
     color: white;
     margin: 50px;
+    margin-left: 250px;
     flex-direction: column;
     text-align: center;
+    max-width: 750px;
 }
 
 .results-txt > h3 {
     margin-top: 60px;
     margin-bottom: 30px;
     justify-content: center;
+    font-size: 25;
+    font-family: "Open Sans";
 }
 
 .results-txt > h1 {
     padding: 30px;
-    border: 4px solid white;
+    border: 2px solid white;
     border-radius: 15px;
-    background-color: #630000;
+    background-color: #26ae75;
 }
 
 .results-txt > p {
     margin-top: 150px;
 }
 
+.alternative-articles {
+    margin-bottom: 120px;
+    margin-left: 100px;
+}
+
 .alternative-articles > h2 {
     color: white;
     text-align: center;
     margin-top: 100px;
-    text-decoration: underline;
+    margin-bottom: 80px;
+    font-size: 75;
 }
 
-.carousel-caption {
-    margin-top: 200px;
-}

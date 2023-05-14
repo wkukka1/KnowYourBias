@@ -8,7 +8,7 @@ MarkupSafe==1.1.1
 pytz==2020.1
 six==1.15.0
 Werkzeug==1.0.1
-
+newscatcherapi
 requests~=2.30.0
 beautifulsoup4~=4.12.2
 newscatcherapi~=0.7.2
